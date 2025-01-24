@@ -11,6 +11,8 @@ with SB(uc=True, test=True, locale_code="en", ad_block=True) as sb:
     t=sb.remove_attributes('script')
     print(f'.prop WOO script: {t}')
     print(f'.prop WOO script.text: {t.text}')
+    t=sb.remove_attributes('style')
+    t=sb.remove_attributes('.jd-ekskluziva')
 
 
     # sb.cdp.gui_click_element('div[data-testid="user-tools-container"]')
@@ -24,23 +26,3 @@ with SB(uc=True, test=True, locale_code="en", ad_block=True) as sb:
     # for element in elements:
     #     print("* " + element.text)
 
-
-# from bs4 import BeautifulSoup
-
-# # Assuming 'html_content' is your HTML string
-# soup = BeautifulSoup(html_content, 'html.parser')
-
-# # Remove script tags
-# for script in soup.find_all('script'):
-#     script.decompose()
-
-# # Remove style tags
-# for style in soup.find_all('style'):
-#     style.decompose()
-
-# # Remove elements with class 'jd-ekskluziva'
-# for ekskluziva in soup.find_all(class_='jd-ekskluziva'):
-#     ekskluziva.decompose()
-
-# # Convert to string
-# result = str(soup)
