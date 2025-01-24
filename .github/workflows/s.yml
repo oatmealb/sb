@@ -1,4 +1,7 @@
 name: CI build
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 on:
   #schedule:
     # Every 23rd minute of ever 3rd hour (/3) between 06-22.
