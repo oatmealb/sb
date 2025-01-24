@@ -1,21 +1,26 @@
 from seleniumbase import SB
-from time import sleep
+
 import random
 def _sleep():
-  sleep(random.uniform(0.2,1.5))
+  time.sleep(random.uniform(0.2,1.5))
+
 with SB(uc=True, test=True, locale_code="en", ad_block=True) as sb:
     url = "https://www.nike.com/"
     sb.activate_cdp_mode(url)
     sb.sleep(2.5)
-    t=sb.find_element('body')
-    # t=sb.find_element('.property-section')
+    # sb.find_element('body')
+    # t=
     # print(f'.prop: {t}')
     # print(f'.prop.text: {t.text}')
-    t=sb.remove_elements('script')
-    print(f'.prop WOO script: {t}')
+    sb.remove_elements('script')
     # print(f'.prop WOO script.text: {t.text}')
-    t=sb.remove_elements('style')
-    t=sb.remove_elements('.jd-ekskluziva')
+    sb.remove_elements('style')
+    sb.remove_elements('.jd-ekskluziva')
+    e=sb.find_element('.property-section')
+
+    t=sb.get_text('body')
+    print(f'.propteet: {t}')
+
 
 
     # sb.cdp.gui_click_element('div[data-testid="user-tools-container"]')
@@ -28,4 +33,3 @@ with SB(uc=True, test=True, locale_code="en", ad_block=True) as sb:
     #     print('**** Found results for "%s": ****' % search)
     # for element in elements:
     #     print("* " + element.text)
-
