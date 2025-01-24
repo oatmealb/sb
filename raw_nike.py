@@ -4,8 +4,8 @@ with SB(uc=True, test=True, locale_code="en", ad_block=True) as sb:
     url = "https://www.nike.com/"
     sb.activate_cdp_mode(url)
     sb.sleep(2.5)
-    # t=sb.get_text('.property-section')
-    t=sb.find_element('.property-section')
+    t=sb.find_element('body')
+    # t=sb.find_element('.property-section')
     print(f'.prop: {t}')
     print(f'.prop.text: {t.text}')
     t=sb.remove_attributes('script')
