@@ -85,6 +85,14 @@ jobs:
     # - name: Run python s.py --debug
     #   run: |
     #     python s.py --debug
+    #   env:
+    #     ENV_SECRET: ${{ secrets.ENV_SECRET }}
+    #     REPO_SECRET: ${{ secrets.REPO_SECRET }}
     - name: Run python raw_nike.py --debug
       run: |
         python raw_nike.py --debug
+    - name: Slack Notification
+      if: failure()
+      uses: rtcamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
