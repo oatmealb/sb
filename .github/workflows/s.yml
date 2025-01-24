@@ -1,9 +1,9 @@
 name: CI build
 on:
-  schedule:
+  #schedule:
     # Every 23rd minute of ever 3rd hour (/3) between 06-22.
     # Equivalent: 23 6,9,12,15,18,21 * * *
-    - cron: "23 06-22/3 * * *"
+   # - cron: "23 06-22/3 * * *"
   push:
     branches: [ main ]
   pull_request:
