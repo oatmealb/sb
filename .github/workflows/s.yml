@@ -37,7 +37,7 @@ jobs:
         python-version: ${{ env.PYTHON_VERSION }}
         cache: 'pip'
     - name: Cache APT packages
-      uses: awalsh128/cache-apt-pkgs-action@v1.4
+      uses: awalsh128/cache-apt-pkgs-action@v1.4.3
       with:
         packages: tzdata locales google-chrome-stable
         version: 1.0
@@ -80,14 +80,15 @@ jobs:
       run: |
         python -c "from seleniumbase.core import detect_b_ver; print(detect_b_ver.get_binary_location('google-chrome'))"
         python -c "from seleniumbase import undetected; print(undetected.find_chrome_executable())"
-    # - name: Run python s.py --debug
-    #   run: |
-    #     python s.py --debug
-    #   env:
-    #     BASE_URL: ${{ secrets.BASE_URL }}
-    #     PTYPE: ${{ inputs.ptype }}
-    #     LTYPE: ${{ inputs.ltype }}
-    #     DIVISION_URL_PATH: ${{ inputs.division_url_path }}
+    - name: Run python s.py --debug
+    # python s.py --debug
+      run: |
+        echo "$BASE_URL $PTYPE"
+      env:
+        BASE_URL: ${{ secrets.BASE_URL }}
+        PTYPE: ${{ inputs.ptype }}
+        LTYPE: ${{ inputs.ltype }}
+        DIVISION_URL_PATH: ${{ inputs.division_url_path }}
 
     - name: Test run
       run: |
