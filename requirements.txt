@@ -1,0 +1,7 @@
+seleniumbase==4.34.3
+nodriver
+pyvirtualdisplay
+pdbp
+tabcompleter
+sbvirtualdisplay
+psycopg2==2.9.10
