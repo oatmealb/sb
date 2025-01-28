@@ -89,9 +89,9 @@ jobs:
     #     LTYPE: ${{ inputs.ltype }}
     #     DIVISION_URL_PATH: ${{ inputs.division_url_path }}
 
-    - name: Run python raw_nike.py --debug
+    - name: Test run
       run: |
-        python raw_nike.py --debug
+        python j.py --debug
     # https://github.com/rtCamp/action-slack-notify
     - name: Slack Notification
       if: failure()
